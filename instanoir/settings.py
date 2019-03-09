@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gram.apps.GramConfig',
+    'users.apps.UsersConfig'
 ]
 
 MIDDLEWARE = [
