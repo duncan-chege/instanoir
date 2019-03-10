@@ -3,5 +3,10 @@
     height: 500px;
 }
 .sectn{
-    margin-top: 40px;
+    margin-top: 50px;
+}
+.title{
+    text-align: center;
+    font-family: 'Grand Hotel', cursive;
+    font-size: 48px;
 }
