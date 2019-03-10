@@ -5,6 +5,5 @@ from .models import Image
 
 def home(request):
     imagedata = Image.objects.all()
-    title = Noir feed
-    return render(request, 'home.html', title=title)
+    return render(request, 'home.html',{"imagedata":imagedata})
 

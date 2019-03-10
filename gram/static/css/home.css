@@ -1,0 +1,64 @@
+a {
+    text-decoration: none;
+  }
+  
+  .Instagram-card {
+    background: white;
+    border: 1px solid #f2f2f2;
+    border-radius: 3px;
+    width: 100%;
+    max-width: 402px;
+    margin: auto;
+  }
+  
+  .Instagram-card-header {
+    padding: 10px;
+  }
+  
+  .Instagram-card-user-image {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+  }
+  .Instagram-card-user-name {
+    margin-left: 20px;
+    font-weight: bold;
+    color: #262626;
+  }
+  
+  .Instagram-card-content {
+    padding: 20px;
+  }
+  
+  .Likes {
+    font-weight: bold;
+  }
+  
+  .Instagram-card-content-user {
+    font-weight: bold;
+    color: #262626;
+  }
+  .comments {
+    color: #999;
+  }
+  
+  .user-comment {
+    color: #003569;
+  }
+  hr {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+  .Instagram-card-image{
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+  }
+  .Instagram-card-image img{
+    width: 100%;
+    height: 100%;
+  }
