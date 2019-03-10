@@ -1,1 +1,40 @@
-<h1>Landing page</h1>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% for i_data in imagedata %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="Instagram-card">
+
+                <div class="Instagram-card-header">
+                    <img src="{{i_data.noir_image}}" class="Instagram-card-user-image">
+                    <!--Should be profile picture-->
+                    <a class="Instagram-card-user-name" href="#"> {{i_data.grammer}} </a>
+                </div>
+
+                <!--Be username linking him/her to their profile-->
+                <div class="Instagram-card-image">
+                    <img src="{{i_data.noir_image}}" height=600px />
+                </div>
+
+                <div class="Instagram-card-content">
+                    <p class="Likes">{{i_data.like}}}</p>
+                    <p><a class="Instagram-card-content-user">
+                            <href="https://www.instagram.com/rogersbase/">{{i_data.grammer}} </a> {{i_data.caption}} </p>
+                                <p class="comments">Add a comment</p>
+                    <br><a class="user-comment" href="#">{{i_data.grammer}}</a> {{i_data.comment}}</br>
+                    <!--Be username linking him/her to their profile-->
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endfor %}
+{% endblock %}
