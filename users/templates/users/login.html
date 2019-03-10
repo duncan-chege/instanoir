@@ -8,29 +8,30 @@
 <div class="container">
     <div class=row>
 
-        <div class="col-md-6">
+        <div class="col-md-5">
             <img src='/static/images/iphone.png' class="phoneimg" alt="picture">
-            <div class="col-md-6">
+        </div>
 
-                <div class="col-md-6">
-                    <div class="content-section">
-                        <form method="POST">
-                            {% csrf_token %}
-                            <fieldset class="form-group">
-                                <legend class="border-bottom mb-4">Instanoir</legend>
-                                {{form|crispy }}
-                            </fieldset>
-                            <div class="form-group">
-                                <button class="btn btn-dark" type="submit">Sign Up</button>
-                            </div>
-                        </form>
-                        <div class="border-top pt-3">
-                            <small class="text-muted"> Need an account? <a class="ml-2" href="{% url 'register' %}">Register</a>
-                            </small>
-                        </div>
+        <div class="col-md-4">
+            <div class="content-section sectn">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Instanoir</legend>
+                        {{form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-dark" type="submit">Sign Up</button>
                     </div>
+                </form>
+                <div class="border-top pt-3">
+                    <small class="text-muted"> Need an account? <a class="ml-2" href="{% url 'register' %}">Register</a>
+                    </small>
                 </div>
             </div>
         </div>
 
-        {% endblock %}
+    </div>
+</div>
+
+{% endblock %}
