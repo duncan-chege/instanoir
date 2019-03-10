@@ -1,0 +1,16 @@
+.smalltxt{
+    font-size: 15px;
+    margin-top: -20px;
+    text-align: center;
+}
+#title{
+    font-family: 'Grand Hotel', cursive;
+    font-size: 44px;
+    text-align: center;
+}
+.form{
+    margin-left: 400px;
+}
+.below{
+    margin-left: 400px;
+}
