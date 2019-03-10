@@ -8,3 +8,6 @@ class Image(models.Model):
     like = models.IntegerField(default=0)
     comment = models.TextField()
     grammer = models.ForeignKey(User, on_delete=models.CASCADE)     #models.CASCADE-if a user is deleted, delete their posts as well
+
+    def __str__(self):
+        return self.image_name      #how it'll be printed on shell
