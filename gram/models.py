@@ -12,8 +12,8 @@ class Image(models.Model):
         return self.image_name      #how it'll be printed on shell
 
 class Comment(models.Model):
-    image = models.ForeignKey(Image)
     user = models.ForeignKey(User)
+    image = models.ForeignKey(Image)
     content = models.TextField(max_length=160,null=True, blank=True)
 
     def save_comment(self):

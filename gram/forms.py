@@ -1,7 +1,13 @@
 from django import forms
-from .models import Image, Comment
-from django.contrib.auth.models import User
+from .models import Comment
+# from django.contrib.auth.models import User
 
 
 class CommentForm(forms.ModelForm):
-    comment = forms.CharField(max_length=100, widget= forms.TextInput(attrs={'placeholder':'Add a Comment'}))
+    class Meta:
+        model = Comment
+        exclude = ['user', 'image']
+        widgets = {
+            'content': forms.TextInput(attrs={'placeholder':'Add a comment'})       #names to be similar as the fieldnames
+        }
+        
