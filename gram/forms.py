@@ -6,7 +6,7 @@ from .models import Comment
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        exclude = ['user', 'image']
+        exclude = ['username', 'image']
         widgets = {
             'content': forms.TextInput(attrs={'placeholder':'Add a comment'})       #names to be similar as the fieldnames
         }

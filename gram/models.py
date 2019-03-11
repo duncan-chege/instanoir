@@ -12,7 +12,7 @@ class Image(models.Model):
         return self.image_name      #how it'll be printed on shell
 
 class Comment(models.Model):
-    user = models.ForeignKey(User)
+    username = models.ForeignKey(User)
     image = models.ForeignKey(Image)
     content = models.TextField(max_length=160,null=True, blank=True)
 

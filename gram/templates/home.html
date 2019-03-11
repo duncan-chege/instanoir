@@ -26,11 +26,16 @@
                     <p><a class="Instagram-card-content-user">
                             <href="#">{{i_data.grammer}}
                         </a> {{i_data.image_caption}} </p>
-                    <p class="comments">Add a comment</p>
-<!-- 
+
                     {% for comment in comments %}
-                    <p><a class="user-comment" href="#">{{comment.user}}</a> {{comment.content}}</p>
-                    {% endfor %} -->
+                        
+                        {% if comment.image == i_data %}
+                        <p><a class="user-comment" href="#">@{{comment.username.username}}</a> {{comment.content}}</p>
+                        {% endif %}
+                        {% endfor %}
+
+
+
                     <hr>
                 </div>
             </div>
