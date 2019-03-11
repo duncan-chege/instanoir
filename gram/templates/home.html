@@ -24,10 +24,13 @@
                 <div class="Instagram-card-content">
                     <p class="Likes">{{i_data.like}}</p>
                     <p><a class="Instagram-card-content-user">
-                            <href="https://www.instagram.com/rogersbase/">{{i_data.grammer}} </a> {{i_data.caption}} </p>
-                                <p class="comments">Add a comment</p>
-                    <br><a class="user-comment" href="#">{{i_data.grammer}}</a> {{i_data.comment}}</br>
-                    <!--Be username linking him/her to their profile-->
+                            <href="#">{{i_data.grammer}}
+                        </a> {{i_data.image_caption}} </p>
+                    <p class="comments">Add a comment</p>
+
+                    {% for comment in comments %}
+                    <p><a class="user-comment" href="#">{{comment.user}}</a> {{comment.content}}</p>
+                    {% endfor %}
                     <hr>
                 </div>
             </div>

@@ -15,3 +15,6 @@ class Comment(models.Model):
     image = models.ForeignKey(Image)
     user = models.ForeignKey(User)
     content = models.TextField(max_length=160,null=True, blank=True)
+
+    def save_comment(self):
+        self.save()
