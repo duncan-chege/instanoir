@@ -13,10 +13,10 @@ def home(request):
         if comment_form.is_valid():
             image_id = int(request.POST.get('comment_id'))     #get the id of the name of a comment input field for a specific post. The id of input field is in string, so i convert it into int
             image = Image.objects.get(id = image_id)        #get the id of a specific image and associate it with its specific comment field
-            comment = comment_form.save()
-            comment.username = request.user
+            comment = comment_form.save(commit=False)       #this comment hasn't been saved to the database yet cause realistically we still have an image and a username to save. We later on have to alter the model instance so as to finally save it 
+            comment.username = request.user         #we alter the model instance cause we aren't actually entering username and image data
             comment.image = image
-            comment.save()      #saving a comment
+            comment.save()      #saving the comment(model instance) 
         return redirect('home')
     else:
         comment_form = CommentForm()

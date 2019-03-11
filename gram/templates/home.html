@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
+
 {% load static %}
 
 {% block content %}
@@ -34,7 +36,12 @@
                         {% endif %}
                         {% endfor %}
 
-
+                        <form action="{% url 'home' %}" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="hidden" name="comment_id" value='{{i_data.id}}'>  <!-- Shows the image id -->
+                            {% bootstrap_form comment_form %}
+                            <input type="submit" value="Add Comment">
+                        </form>
 
                     <hr>
                 </div>
