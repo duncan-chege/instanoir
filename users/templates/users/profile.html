@@ -1,8 +1,22 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
 
-<h1>{{user.username}}</h1>
-
+<div class="content-section">
+    <div class="media">
+        <div class="image">
+        <img src="{{user.profile.image.url}}" alt="profile pic">
+        </div>
+        <div class="media-body">
+         
+            <h3 class="account-heading"><b>{{user.username}}</b></h2>
+            <p class="text-secondary">{{user.email}}</p>
+        
+        </div>
+    </div>
+<!--FORM HERE-->
+</div>
 {% endblock %}
