@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect 
 from .forms import UserRegisterForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from .models import Profile
-
+from gram.models import Image
 
 def register(request):
     if request.method == 'POST':
@@ -19,7 +20,8 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, 'users/profile.html')
+    images = Image.objects.filter(upload_by = user)
+    return render(request, 'users/profile.html',{'images':images})
 
 @login_required
 def update(request):
