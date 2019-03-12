@@ -18,20 +18,10 @@
                         <h3 class="account-heading"><b>{{user.username}}</b></h3>
                             <p class="text-secondary">{{user.profile.bio}}</p>
                     </div>
-                    <button class="btn btn-dark editbtn" type="submit">Edit Profile</button>
+                    <a href="{% url 'update' %}"><button class="btn btn-dark editbtn" type="submit">Edit Profile</button></a>
+                    
                 </div>
-                <form method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <fieldset class="form-group form">
-                        <legend class="border-bottom mb-4">
-                            <p id="title">Bio Info</p>
-                        </legend>
-                        {{p_form|crispy }}
-                    </fieldset>
-                    <div class="form-group form">
-                        <button class="btn btn-dark" type="submit">Update</button>
-                    </div>
-                </form>
+                <hr>
             </div>
         </div>
     </div>
