@@ -5,27 +5,35 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 
-<div class="content-section">
-    <div class="media">
-        <div class="image">
-        <img src="{{user.profile.image.url}}" alt="profile pic">
-        </div>
-        <div class="media-body">
-         
-            <h3 class="account-heading"><b>{{user.username}}</b></h2>
-            <p class="text-secondary">{{user.profile.bio}}</p>
-        
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="content-section">
+                <div class="media">
+
+                    <img class="rounded-circle account-img" src="{{user.profile.image.url}}" alt="profile pic">
+
+                    <div class="media-body">
+
+                        <h3 class="account-heading"><b>{{user.username}}</b></h3>
+                            <p class="text-secondary">{{user.profile.bio}}</p>
+                    </div>
+                    <button class="btn btn-dark editbtn" type="submit">Edit Profile</button>
+                </div>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset class="form-group form">
+                        <legend class="border-bottom mb-4">
+                            <p id="title">Bio Info</p>
+                        </legend>
+                        {{p_form|crispy }}
+                    </fieldset>
+                    <div class="form-group form">
+                        <button class="btn btn-dark" type="submit">Update</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-    <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <fieldset class="form-group form">
-                <legend class="border-bottom mb-4"><p id="title">Bio Info</p></legend>
-                {{p_form|crispy }}
-            </fieldset>
-            <div class="form-group form">
-                <button class="btn btn-dark" type="submit">Update</button>
-            </div>
-        </form>
 </div>
 {% endblock %}
