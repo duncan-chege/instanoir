@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-8">
+            <h3>{{message}}</h3>
+            {% if usernames%}
+            {% for u in usernames %}
+
+            {% if u.user.username %}
+            <h3>Go to <a href="{% url 'profile' user.user.id %}">{{u.user.username}}</a></h3>
+            {% endif %}
+
+            {% endfor %}
+
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

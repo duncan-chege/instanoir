@@ -10,14 +10,16 @@
             <div class="content-section">
                 <div class="media">
 
-                    <img class="rounded-circle account-img" src="{{user.profile.image.url}}" alt="profile pic">
-
+                    {% for profile in profiles %}
+                    <img class="rounded-circle account-img" src="{{profile.image.url}}" alt="profile pic">
+                    {% endfor %}
+                    
                     <div class="media-body">
 
                         <h3 class="account-heading"><b>{{user.username}}</b></h3>
                         <p class="text-secondary">{{user.profile.bio}}</p>
                     </div>
-                    {% if user.is_authenticated %}
+                    {% if user.id == request.user.id %}     <!--if profle i'm viewing is for current user, display button-->
                     <a href="{% url 'post' %}"><button class="btn btn-dark editbtn" type="submit">Post Picture</button></a>
                     {% endif %}
                 </div>

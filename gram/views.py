@@ -26,3 +26,7 @@ def home(request):
     print(comments)
     return render(request, 'home.html',{"imagedata":imagedata, "comments": comments, "comment_form":comment_form, "profiles":profiles})
 
+def profile(request, id):       #getting specific images posted by one instagrammer
+    user = User.objects.get(id=id)      #get specific id of a user
+    images=Image.objects.all().filter(grammer_id = user.id)
+    return render(request, 'users/profile.html',{'images':images,"user":user})

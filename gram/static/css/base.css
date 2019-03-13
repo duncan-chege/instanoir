@@ -1,0 +1,49 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 2px solid #ddd;
+  }
+  .navbar .logo-section {
+    display: flex;
+    align-items: center;
+  }
+  .navbar .logo-section div {
+    align-self: stretch;
+    width: 1px;
+    background: black;
+    margin: 0 20px;
+  }
+  .navbar .icons-section .fa {
+    text-decoration: none;
+    color: inherit;
+    font-size: 2rem;
+    margin: 0 10px;
+  }
+  .navbar .logo {
+    width: 40px;
+  }
+  .navbar .logoname {
+    width: 130px;
+    margin-bottom: -1px;
+    font-family: 'Grand Hotel', cursive;
+    font-size: 27px;
+  }
+  .navbar .input-search {
+    padding: 4px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solix #ddd;
+    outline: 0;
+    margin-right: 150px;
+  }
+  .navbar .input-search:focus {
+    text-align: left;
+  }
+  .navbar .icons-section .fa{
+    text-decoration: none;
+    color: inherit;
+    font-size: 2rem;
+    margin: 0 10px;
+  }

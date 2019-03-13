@@ -9,9 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet">
 
 
-    <title>Instanoir</title>
+    <title>My Gram</title>
 
     {% block styles %}
     {% bootstrap_css %}
@@ -22,13 +23,14 @@
 <body>
   
 <nav class="navbar">
-    <section class="logo-section"><img class="logo" src="/static/images/iphone.png"/>
-      <div></div><img class="logoname" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2000px-Instagram_logo.svg.png"/>
+    <section class="logo-section"><a href="{% url 'home' %}"><img class="logo" src="/static/images/logo.png"/></a>
+      <div></div><p class="logoname">MyGram</p>
     </section>
-    <form class="search-section">
-      <input class="input-search" type="search" name="search" placeholder="Buscar"/>
+    <form class="search-section" role="search" action="{% url 'search_results' %}">
+      <input class="input-search" type="search" name="search" placeholder="Search a user"/>
     </form>
-    <section class="icons-section"><a class="fa fa-compass" href="#"></a><a class="fa fa-heart-o" href="#"></a><a class="fa fa-user-o" href="#"></a></section>
+    <section class="icons-section"><a href="{% url 'profile' user.id %}">Profile</a></section>
+    <section class="icons-section2"><a href="{% url 'login' %}">Logout</a></section>
   </nav>
 
     {% block content %}

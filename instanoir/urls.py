@@ -24,11 +24,11 @@ urlpatterns = [
     url(r'', include('gram.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^register', user_views.register, name = 'register'),
-    url(r'^login/', auth_views.LoginView.as_view(template_name='users/login.html'), name = 'login'),
-    url(r'^logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name = 'logout'),
+    url(r'^$', auth_views.LoginView.as_view(template_name='users/login.html'), name = 'login'),
     url(r'^profile/(\d+)', user_views.profile, name = 'profile'),
     url(r'^post/',user_views.post, name= 'post'),
-    url(r'^specimage/(\d+)', user_views.specimage, name='specimage')
+    url(r'^specimage/(\d+)', user_views.specimage, name='specimage'),
+    url(r'^search/', user_views.search_results, name='search_results')
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)       #adding it to our urlpatterns list

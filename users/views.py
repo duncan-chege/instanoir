@@ -22,7 +22,8 @@ def register(request):
 def profile(request, id):       #getting specific images posted by one instagrammer
     user = User.objects.get(id=id)      #get specific id of a user
     images=Image.objects.all().filter(grammer_id = user.id)
-    return render(request, 'users/profile.html',{'images':images,"user":user})
+    profiles = Profile.objects.all()
+    return render(request, 'users/profile.html',{'images':images,"user":user,"profiles":profiles})
 
 @login_required
 def post(request):          #posting new images for a certain instagrammer
@@ -43,3 +44,21 @@ def specimage(request, id):     #displaying specific images on a separate page
     image = Image.objects.get(id=id)        #get specific id of an image
     print (image)
     return render(request, 'users/specimage.html',{'image':image})
+
+@login_required
+def search_results(request):
+    if 'search' in request.GET and request.GET["search"]:
+        search_term = request.GET.get("search")
+        searched_usernames = Profile.search_username_profile(search_term)
+        message = f"Displaying: {search_term} search results"
+
+        return render(request, 'users/search.html',{"message":message,"usernames": searched_usernames,"profiles":profiles})
+
+    else:
+        message = "You haven't searched for a user"
+        print(profile)
+        return render(request, 'users/search.html',{"message":message})
+
+
+
+
