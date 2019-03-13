@@ -13,9 +13,13 @@
             <div class="Instagram-card">
 
                 <div class="Instagram-card-header">
-                    <img src="{{i_data.image_path.url}}" alt="{{i_data.image_name}}" class="Instagram-card-user-image">
-                    <!--Should be profile picture-->
-                    <a class="Instagram-card-user-name" href="#"> {{i_data.grammer}} </a>
+                    {% for profile in profiles %}
+                  
+                    <img src="{{profile.image.url}}" alt="{{profile.user}}'s image'" class="Instagram-card-user-image">
+                    
+                    {% endfor %}
+
+                    <a class="Instagram-card-user-name" href="{% url 'profile' i_data.grammer.id %}"> {{i_data.grammer}} </a>
                 </div>
 
                 <!--Be username linking him/her to their profile-->

@@ -1,13 +1,17 @@
 {% load bootstrap4 %}
 {% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>Noir feed</title>
+    <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+
+    <title>Instanoir</title>
 
     {% block styles %}
     {% bootstrap_css %}
@@ -16,6 +20,16 @@
 </head>
 
 <body>
+  
+<nav class="navbar">
+    <section class="logo-section"><img class="logo" src="/static/images/iphone.png"/>
+      <div></div><img class="logoname" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2000px-Instagram_logo.svg.png"/>
+    </section>
+    <form class="search-section">
+      <input class="input-search" type="search" name="search" placeholder="Buscar"/>
+    </form>
+    <section class="icons-section"><a class="fa fa-compass" href="#"></a><a class="fa fa-heart-o" href="#"></a><a class="fa fa-user-o" href="#"></a></section>
+  </nav>
 
     {% block content %}
 

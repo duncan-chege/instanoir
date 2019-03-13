@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
 {% load static %}
 
 {% block content %}
@@ -16,18 +15,27 @@
                     <div class="media-body">
 
                         <h3 class="account-heading"><b>{{user.username}}</b></h3>
-                            <p class="text-secondary">{{user.profile.bio}}</p>
+                        <p class="text-secondary">{{user.profile.bio}}</p>
                     </div>
-                    <a href="{% url 'update' %}"><button class="btn btn-dark editbtn" type="submit">Edit Profile</button></a>   
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'post' %}"><button class="btn btn-dark editbtn" type="submit">Post Picture</button></a>
+                    {% endif %}
                 </div>
                 <hr>
                 <h3 class="pstitle"> POSTS </h3>
-                {% for image in images %}
-
-                <img src="{{image.image_path.url}}" alt="{{image.image_name}}" height=600px />
-
-                {% endfor %}
             </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="cl-md-4">
+
+            {% for image in images %}
+            <div class="myimage">
+                <a href="{% url 'specimage' image.id %}"><img src="{{image.image_path.url}}" alt="{{image.image_name}}"></a>
+            </div>
+            {% endfor %}
+
         </div>
     </div>
 </div>

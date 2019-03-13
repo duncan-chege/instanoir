@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/newimage.css' %}">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="form-group form">
+                    <legend class="border-bottom mb-4">
+                        <p id="title">Upload an Image</p>
+                    </legend>
+                    {{newform|crispy }}
+                </fieldset>
+                <div class="form-group form">
+                    <button class="btn btn-dark" type="submit">Upload</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

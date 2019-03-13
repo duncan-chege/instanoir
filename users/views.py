@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect 
-from .forms import UserRegisterForm, ProfileUpdateForm
+from .forms import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Profile
@@ -19,27 +19,27 @@ def register(request):
     return render(request, 'users/register.html', {'form':form})
 
 @login_required
-def profile(request):
-    images = Image.objects.filter(upload_by = user)
-    return render(request, 'users/profile.html',{'images':images})
+def profile(request, id):       #getting specific images posted by one instagrammer
+    user = User.objects.get(id=id)      #get specific id of a user
+    images=Image.objects.all().filter(grammer_id = user.id)
+    return render(request, 'users/profile.html',{'images':images,"user":user})
 
 @login_required
-def update(request):
+def post(request):          #posting new images for a certain instagrammer
+    user = request.user
     if request.method == 'POST':
-        p_form = ProfileUpdateForm(request.POST, request.FILES, instance = request.user.profile)
-
-        if p_form.is_valid():
-            p_form.save()
-            return redirect ('profile')
+        newform = NewImageForm(request.POST, request.FILES)
+        if newform.is_valid():
+            image = newform.save(commit=False)
+            image.grammer = user
+            image.save()
+        return redirect('profile', user.id)
     else:
-        p_form = ProfileUpdateForm(instance=request.user.profile)
+        newform = NewImageForm()
+    return render(request, 'users/newimage.html',{"newform":newform})
 
-    return render(request, 'users/update.html',{'p_form':p_form})
-
-
-
-
-
-
-
-   
+@login_required
+def specimage(request, id):     #displaying specific images on a separate page
+    image = Image.objects.get(id=id)        #get specific id of an image
+    print (image)
+    return render(request, 'users/specimage.html',{'image':image})

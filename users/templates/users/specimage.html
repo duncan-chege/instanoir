@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/specimage.css' %}">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+
+                <img src="{{image.image_path.url}}" alt="{{image.image_name}}">
+                <div class="card_container">
+                    <h3><b>{{image.image_name}}</b></h3>
+                    <p>{{image.image_caption}}</p>
+                    <p> <i>Posted by:</i> {{image.grammer}} </p>
+                </div>
+           
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

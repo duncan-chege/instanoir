@@ -3,10 +3,12 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User     # user class
 from .models import Image,Comment
 from .forms import CommentForm
+from users.models import Profile 
 
 def home(request):
     imagedata = Image.objects.all().order_by('-id')     #arranging images from most recent as the first to be seen
     comments = Comment.objects.all()
+    profiles = Profile.objects.all()
 
     if request.method == 'POST':
         comment_form = CommentForm(request.POST)
@@ -22,5 +24,5 @@ def home(request):
         comment_form = CommentForm()
 
     print(comments)
-    return render(request, 'home.html',{"imagedata":imagedata, "comments": comments, "comment_form":comment_form})
+    return render(request, 'home.html',{"imagedata":imagedata, "comments": comments, "comment_form":comment_form, "profiles":profiles})
 
