@@ -1,0 +1,1 @@
+web: gunicorn instanoir.wsgi --log-file -
